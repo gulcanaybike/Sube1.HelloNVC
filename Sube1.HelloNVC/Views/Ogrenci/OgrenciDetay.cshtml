@@ -1,0 +1,55 @@
+﻿@using Sube1.HelloNVC.Models
+@model OgrViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OgrenciDetay</title>
+</head>
+<body>
+    <h3>Öğrenci Detayları</h3>
+    <h4>View data ile gelen öğrenci bilgileri</h4>
+     @if (ViewData["ogrenci"]!=null)
+    {
+        <p>Ad:@(((Ogrenci)ViewData["ogrenci"]).Ad)</p>
+    }
+    else
+    {
+        <p>Ogrenci Bulunamadı!</p>
+    }
+    <h4>View Bag ile gelen öğrenci belgeleri</h4>
+    @if (ViewBag.student !=null)
+    {
+        <p>Ad:@ViewBag.student.Ad</p>
+        //runtime sırasında tipleri belli olur dynamic yapı da olmasından kaynaklı bu yüzden hata view de çıkar
+    }
+    else
+    {
+        <p>Ogrenci Bulunamadı!</p>
+    }
+
+    <h4> ViewBag ile gelen ogretmen bilgileri</h4>
+    <p>@ViewBag.teacher.Ad</p>
+
+    <h4>Model ile gelen ögrenci</h4>
+    <p>
+        @Model.Ogrenci.Ad
+    </p>
+
+    <h4>Model ile gelen öğretmen</h4>
+    <p>
+        @Model.Ogretmen.Ad
+    </p>
+
+    <h4>Model ile gelen ders</h4>
+    <p>
+        @Model.Ders.Dersad
+    </p>
+
+</body>
+</html>
