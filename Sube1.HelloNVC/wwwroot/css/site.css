@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #9915C7;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(153, 21, 199, 1), rgba(78, 21, 199, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(153, 21, 199, 1), rgba(78, 21, 199, 1))
+}
+.txt-grey {
+    color: #D7E4F5 !important;
+}
+.txt-darkblue {
+    color: #4A7BA9 !important;
+}

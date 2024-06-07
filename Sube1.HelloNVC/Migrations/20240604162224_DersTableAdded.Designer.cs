@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sube1.HelloNVC.Models;
 
@@ -10,9 +11,11 @@ using Sube1.HelloNVC.Models;
 namespace Sube1.HelloNVC.Migrations
 {
     [DbContext(typeof(OkulDbContext))]
-    partial class OkulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240604162224_DersTableAdded")]
+    partial class DersTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,50 +71,6 @@ namespace Sube1.HelloNVC.Migrations
                     b.HasKey("Ogrenciid");
 
                     b.ToTable("tblOgrenciler", (string)null);
-                });
-
-            modelBuilder.Entity("Sube1.HelloNVC.Models.OgrenciDersleri", b =>
-                {
-                    b.Property<int>("Ogrenciid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Dersid")
-                        .HasColumnType("int");
-
-                    b.HasKey("Ogrenciid", "Dersid");
-
-                    b.HasIndex("Dersid");
-
-                    b.ToTable("tblOgrneciDersleri", (string)null);
-                });
-
-            modelBuilder.Entity("Sube1.HelloNVC.Models.OgrenciDersleri", b =>
-                {
-                    b.HasOne("Sube1.HelloNVC.Models.Ders", "ders")
-                        .WithMany("OgrenciDersleri")
-                        .HasForeignKey("Dersid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Sube1.HelloNVC.Models.Ogrenci", "Ogrenci")
-                        .WithMany("OgrenciDersleri")
-                        .HasForeignKey("Ogrenciid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ogrenci");
-
-                    b.Navigation("ders");
-                });
-
-            modelBuilder.Entity("Sube1.HelloNVC.Models.Ders", b =>
-                {
-                    b.Navigation("OgrenciDersleri");
-                });
-
-            modelBuilder.Entity("Sube1.HelloNVC.Models.Ogrenci", b =>
-                {
-                    b.Navigation("OgrenciDersleri");
                 });
 #pragma warning restore 612, 618
         }

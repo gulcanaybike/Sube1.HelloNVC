@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Ders>
+@{
+    ViewData["Title"] = "OgrenciDersEkle";
+    int ogrenciid = (int)ViewData["OgrenciId"];
+}
+
+<h1>Öğrenci İçin Ders Ekle</h1>
+<!--<form asp-action="OgrenciDersEkle" asp-controller="OgrenciDersleri" method="post">
+    <label>Ogrenci id:</label>
+    <input asp-for="Ogrenciid" />
+    <label>Ders id:</label>
+    <input asp-for="Dersid" />
+    <input type="submit" value="Kaydet" />
+</form>-->
+
+<form asp-action="OgrenciDersEkle" method="post">
+    <input type="hidden" name="ogrenciid" value="@ogrenciid"/>
+    <div class="form-group">
+        <label class="fw-bold" for="dersId">Ders Seçin:</label>
+        <select class="form-control" id="dersid" name="dersid">
+            @foreach (var item in Model)
+            {
+                <option value="@item.Dersid">@item.Dersad</option>
+            }
+        </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Ekle</button>
+</form>
+
+

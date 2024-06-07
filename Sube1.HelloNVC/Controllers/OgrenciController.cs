@@ -40,7 +40,7 @@ namespace Sube1.HelloNVC.Controllers
             OgrViewModel vm = new OgrViewModel();
             vm.Ogretmen = ogrt;
             vm.Ogrenci = ogr;
-            vm.Ders = new Ders { Dersad = "ProgTem", Dersid = 1, Kredi = 5 };
+            //vm.Ders = new Ders { Dersad = "ProgTem", Dersid = 1, Kredi = 5 };
 
             return View(vm);
 

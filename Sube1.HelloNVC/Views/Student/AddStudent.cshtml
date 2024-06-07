@@ -4,14 +4,14 @@
     //action="/Student/AddStudent"
 }
 
-<h1>Öğrenci EKleme</h1>
+<h1>Öğrenci Ekleme</h1>
 
 <form asp-action="AddStudent" asp-controller="Student" method="post">
-    <label>Ad:</label>
+    <label class="fw-bold">Ad:</label>
     <input type="text" id="Ad" name="Ad" />
-    <label>Soyad:</label>
+    <label class="fw-bold">Soyad:</label>
     <input type="text" asp-for="Soyad"/>
-    <label>Numara:</label>
+    <label class="fw-bold">Numara:</label>
     <input asp-for="Numara" />
-    <input type="submit" value="Kaydet" />
+    <input type="submit" class="btn btn-outline-warning" value="Kaydet" />
 </form>

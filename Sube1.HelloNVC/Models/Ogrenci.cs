@@ -7,6 +7,7 @@
         public string Soyad { get; set; }
         public int Numara { get; set; }
 
+        public ICollection<OgrenciDers> OgrenciDersleri { get; set; }
         public override string ToString()
         {
             return $"Ad {Ad}- Soyad{Soyad}- Numara:{Numara}";

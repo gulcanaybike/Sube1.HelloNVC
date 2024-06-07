@@ -3,10 +3,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Ogrenci Listesi</h1>
-<a asp-action="AddStudent" asp-controller="Student" class="btn btn-primary">Ömğrenci Ekle</a>
-<table class="table">
-    <thead>
+<h1>Öğrenci Listesi</h1>
+<a asp-action="AddStudent" asp-controller="Student" class="btn btn-outline-success">Öğrenci Ekle</a>
+<a asp-action="Index" asp-controller="Ders" class="btn btn-outline-dark">Dersler</a>
+<table class="table table-striped table-bordered table-hover table-secondary">
+    <thead class="table-dark">
         <tr>
             <th>Numara</th>
             <th>Ad</th>
@@ -15,14 +16,15 @@
 
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table">
         @foreach (var item in Model)
         {
             <tr>
                 <td>@item.Numara</td>
                 <td>@item.Ad</td>
                 <td>@item.Soyad</td>
-                <td> <a class="btn btn-sm btn-success" href="/Student/EditStudent/@item.Ogrenciid">Düzenle</a> <a class="btn btn-danger btn-sm" href="/Student/DeleteStudent/@item.Ogrenciid" onclick=" return confirm('Emin misiniz?')">Sil</a></td>
+                <td> <a class="btn btn-sm btn-success text-dark" href="/Student/EditStudent/@item.Ogrenciid">Düzenle</a> <a class="btn btn-danger btn-sm text-dark" href="/Student/DeleteStudent/@item.Ogrenciid" onclick=" return confirm('Emin misiniz?')">Sil</a> <button class="btn btn-sm btn-info text-dark" onclick="window.location.href='@Url.Action("alinanDersler", "OgrenciDersleri", new { ogrenciId = item.Ogrenciid })'">Dersleri Görüntüle</button></td>
+                <!-- <a class="btn btn-sm btn-info" href="/OgrenciDersleri/alinanDersler/@item.Ogrenciid">Ogrenci Dersleri</a>-->
             </tr>
         }
     </tbody>
